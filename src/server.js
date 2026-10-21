@@ -3,6 +3,7 @@ import cors from 'cors';
 import { sequelize } from './config/db.js';
 import entryRoutes from './routes/entries.js';
 import goalRoutes from './routes/goals.js';
+import chatRoutes from './routes/chat.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());  // read JSON from request bodies
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api/entries', entryRoutes);
 app.use('/api/goals', goalRoutes);
+app.use('/api/chat', chatRoutes);
 
 const PORT = process.env.PORT || 4000;
 
